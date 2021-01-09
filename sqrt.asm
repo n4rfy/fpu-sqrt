@@ -13,8 +13,7 @@ _start:
 	fld qword [num] ; "Floating Load" (fld) trata o num como QWORD e guarda o resultado em st0.
 	fsqrt ; "Floating Square Root" (Raiz Quadrada) calcula a raiz quadrada do valor de st0, e guarda o resultado em st0.
 
-	fstp qword [res] ; guarda o valor em st (resultado) em "res" tratando
-	como QWORD.
+	fstp qword [res] ; guarda o valor em st (resultado) em "res" tratando como QWORD.
 
 	mov eax, 1 ; 1 = exit()
 	mov ebx, 0 ; exit(0)

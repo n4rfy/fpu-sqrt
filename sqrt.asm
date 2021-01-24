@@ -10,11 +10,12 @@ section .bss
 section .text
 
 _start:
-	fld qword [num] ; "Floating Load" (fld) trata o num como QWORD e guarda o resultado em st0.
-	fsqrt ; "Floating Square Root" (Raiz Quadrada) calcula a raiz quadrada do valor de st0, e guarda o resultado em st0.
+	fld qword [num] ; "Floating Load" (fld) trata o num como QWORD e guarda no topo da pilha.
+	fsqrt ; "Floating Square Root" (Raiz Quadrada) calcula a raiz quadrada do valor no topo da pilha, e guarda o resultado em st0.
 
 	fstp qword [res] ; guarda o valor em st (resultado) em "res" tratando como QWORD.
 
-	mov eax, 1 ; 1 = exit()
-	mov ebx, 0 ; exit(0)
-	int 0x80 ; interrupção 0x80
+	; exit(0) ;
+	mov rax, 60
+	mov rdi, 0
+	syscall
